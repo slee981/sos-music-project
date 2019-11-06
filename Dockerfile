@@ -14,6 +14,8 @@ RUN apk update \
     && pip install psycopg2 \
     && apk del build-deps 
 
+EXPOSE 8080
+
 ADD ./src /src
 RUN pip install --upgrade pip
 RUN pip install -r requirements.pip
