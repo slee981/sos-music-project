@@ -1,0 +1,101 @@
+{% load static %}
+
+
+<div id="sign_in_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <div style="text-align: center">
+            <h4>Sign in to <b>SOS Music Media</b> using social profiles</h4>
+          </div>
+          <div style="text-align: center">
+            <p><a href="#"><img src="{% static 'images/btn/facebook-login.png' %}" alt=""></a></p>
+            <p><a href="#"><img src="{% static 'images/btn/gmail-login.png' %}" alt=""></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form method="POST" name="login_form" id="login_form" action="{% url 'login_1' %}" class="form-horizontal">
+          {% csrf_token %}
+          <div style="text-align: center" class="form-header row m0">
+            <h4>or Sign in using email address</h4>
+          </div>
+
+          <div style="display:none" id="error_message_div" class="alert alert-danger alert-dismissible text-center"
+            role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+            <strong id="bold_word">
+            </strong>
+            <span id="message_text">User or Password incorrect!</span>
+          </div>
+
+          <fieldset>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="username">Username</label>
+              <div class="col-md-4">
+                <input id="username" required="required" name="username" type="text" placeholder="Username"
+                  class="form-control input-md">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="password">Password</label>
+              <div class="col-md-4">
+                <input id="password" required="required" name="password" type="password" placeholder="Password"
+                  class="form-control input-md">
+              </div>
+            </div>
+            <input name="refresh" style="display: none" id="refresh" value="no" />
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="sign_in"></label>
+              <div class="col-md-4">
+                <button id="sign_in" name="sign_in" style="width: 100%" class="btn btn-info">Sign In</button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $('#login_form').submit(function (e) {
+
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: $(this).attr('action'),
+      data: $('#login_form').serialize(),
+      success: function (response) {
+
+        if (response.error_message != '') {
+          $('#message_text').html();
+          $('#bold_word').html('Error:');
+          $('#success_message_div').hide()
+          $('#error_message_div').show()
+          console.log(response)
+        } else {
+          $('#message_text').html(response.success_message);
+          $('#bold_word').html('');
+          $('#error_message_div').hide()
+          $('#success_message_div').show()
+
+          window.location.href = '{% url "my_profile" %}'
+        }
+
+      }
+    });
+
+  });
+</script>

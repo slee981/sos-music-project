@@ -1,0 +1,143 @@
+{% load static %}
+
+<div id="sign_up_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <div style="text-align: center">
+            <h4>Sign Up to <b>SOS Music Media</b> using social profiles</h4>
+          </div>
+          <div style="text-align: center">
+            <p><a href="#"><img src="{% static 'images/btn/facebook-login.png' %}" alt=""></a></p>
+            <p><a href="#"><img src="{% static 'images/btn/gmail-login.png' %}" alt=""></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+          <form method="POST" name="register_form" id="register_form" action="{% url 'register' %}" class="form-horizontal">
+          {% csrf_token %}
+          <div style="text-align: center" class="form-header row m0">
+            <h4>or Create an account below:</h4>
+          </div>
+
+          <div id="message_ajax_modal_signup" class="container" style="width: 70%">
+
+              <div style="display:none" id="error_message_div_signup" class="alert alert-danger alert-dismissible text-center"
+                  role="alert">
+                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                  <strong id="bold_word_signup">
+                  </strong>
+                  <span id="message_text_signup"></span>
+              </div>
+          
+              <div style="display:none" id="success_message_div_signup" class="alert alert-success alert-dismissible text-center"
+                  role="alert">
+                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                  <strong id="bold_word_signup_success">
+                  </strong>
+                  <span id="message_text_signup_success"></span>
+              </div>
+          </div>
+
+          <fieldset>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="first_name">First Name</label>
+              <div class="col-md-4">
+                <input required="required" id="first_name" name="first_name" type="text" placeholder="First Name"
+                  class="form-control input-md">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="last_name">Last Name</label>
+              <div class="col-md-4">
+                <input required="required" id="last_name" name="last_name" type="text" placeholder="Last Name"
+                  class="form-control input-md">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="email">Email</label>
+              <div class="col-md-4">
+                <input required="required" id="email" name="email" type="text" placeholder="Email" class="form-control input-md">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="username">Username</label>
+              <div class="col-md-4">
+                <input required="required" id="username" name="username" type="text" placeholder="Username"
+                  class="form-control input-md">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="password">Password</label>
+              <div class="col-md-4">
+                <input required="required" id="password" name="password" type="password" placeholder="Password"
+                  class="form-control input-md">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="password2">Password Confirmation</label>
+              <div class="col-md-4">
+                <input required="required" id="password2" name="password2" type="password" placeholder="Confirmation"
+                  class="form-control input-md">
+              </div>
+            </div>
+            <input name="refresh" style="display: none" id="refresh" value="no"/>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="sign_in"></label>
+              <div class="col-md-4">
+                <button id="sign_in" name="sign_in" style="width: 100%" class="btn btn-info">Sign In</button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$('#register_form').submit(function (e) {
+    
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: $(this).attr('action'),
+      data: $('#register_form').serialize(),
+      success: function (response) {
+        console.log(response)
+        if (response.error_message != '') {
+          $('#message_text_signup').html(response.error_message);
+          $('#bold_word_signup').html('Error:');
+          $('#success_message_div_signup').hide()
+          $('#error_message_div_signup').show()
+        } else {
+          $('#message_text_signup').html(response.success_message);
+          $('#bold_word_signup').html('');
+          $('#error_message_div_signup').hide()
+          
+          $('#message_text_signup_success').html('Registered! Redirecting to your page...')
+          $('#success_message_div_signup').show()
+          window.location.href = '{% url "my_profile" %}'
+        }
+        
+      }
+    });
+    
+  });
+</script>

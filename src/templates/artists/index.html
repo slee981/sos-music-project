@@ -1,0 +1,130 @@
+{% extends 'intern_base.html' %}
+
+{% block page_title %}
+
+Artists
+
+{% endblock %}
+
+{% block page_breadcrumb %}
+
+Artists -> List
+
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<style>
+.list-group-item {
+    padding-top: 20px;
+}
+</style>
+
+<div class="row">
+    <div class="col-sm-3 col-md-3">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                        </span>Content</a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <ul class="list-group">
+                        <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://fb.com/moinakbarali">Articles</a>
+                            <ul class="list-group">
+                                <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://fb.com/moinakbarali">Articles</a></li>
+        
+                                <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="http://fb.com/moinakbarali">News</a></li>
+        
+                                <li class="list-group-item"><span class="glyphicon glyphicon-file text-info"></span><a href="http://fb.com/moinakbarali">Newsletters</a></li>
+        
+                                <li class="list-group-item"> <span class="glyphicon glyphicon-comment text-success"></span><a href="http://fb.com/moinakbarali">Comments</a><span class="badge">42</span></li>
+                            </ul>
+                        </li>
+  
+                        <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="http://fb.com/moinakbarali">News</a></li>
+    
+                        <li class="list-group-item"><span class="glyphicon glyphicon-file text-info"></span><a href="http://fb.com/moinakbarali">Newsletters</a></li>
+    
+                        <li class="list-group-item"> <span class="glyphicon glyphicon-comment text-success"></span><a href="http://fb.com/moinakbarali">Comments</a><span class="badge">42</span></li>
+    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Dashboard</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    
+                
+                    <div class="row">
+                        {% if artists %}
+                            {% for artist in artists %}
+                                <a href="#" class="list-group-item">
+                                    <div>
+                                        <h4>{{ artist.name }}</h4>
+                                        <span><strong>Artist:</strong> <span class="">{{ artist.name }}</span></span>
+                                        <span><strong>Genre:</strong> Frios Completa</span>
+                                        <span><strong>Topics:</strong> R$ 9.450,00</span>
+                                    </div>
+                                </a>
+                              
+                            {% endfor %}
+                        {% else %}
+                            <div class="col-md-12">
+                                <p>No Artists Available</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                          {% if artists.has_other_pages %}
+                            <ul class="pagination">
+                              {% if artists.has_previous %}
+                                <li class="page-item">
+                                  <a href="?page={{artists.previous_page_number}}" class="page-link">&laquo;</a>
+                                </li>
+                              {% else %}
+                                <li class="page-item disabled">
+                                  <a class="page-link">&laquo;</a>
+                                </li>
+                              {% endif %}
+                              {% for i in artists.paginator.page_range %}
+                                {% if artists.number == i %}
+                                  <li class="page-item active">
+                                    <a class="page-link">{{i}}</a>
+                                  </li>
+                                {% else %}
+                                  <li class="page-item">
+                                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                                  </li>
+                                {% endif %}
+                              {% endfor %}
+                              {% if artists.has_next %}
+                                <li class="page-item">
+                                  <a href="?page={{artists.next_page_number}}" class="page-link">&raquo;</a>
+                                </li>
+                              {% else %}
+                                <li class="page-item disabled">
+                                  <a class="page-link">&raquo;</a>
+                                </li>
+                              {% endif %}
+                            </ul>
+                          {% endif %}
+                        </div>
+                      </div>
+            </div>
+        </div>
+    </div>
+</div>
+      
+{% endblock %}

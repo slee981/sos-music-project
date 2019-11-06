@@ -1,0 +1,578 @@
+{% extends 'intern_base.html' %}
+
+{% block page_title %}
+
+Masum Rana
+
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<section class="row post_page_sidebar post_page_sidebar1">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 post_page_uploads">
+                <div class="author_details row m0">
+                    <div class="author_cover row m0">
+                        <img src='{% static "images/cover.jpg" %}' alt="">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 author_photo_name">
+                            <img src='{% static "images/profile.jpg" %}' alt="" class="img-thumbnail img-circle">
+                            <h3>Masum Rana</h3>
+                        </div>
+                        <div class="col-sm-6 follow_n_count">
+                            <div class="btn-group">
+                                <a href="#" class="btn follower_count">34,000</a>
+                                <a href="#" class="btn follow">follow</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media bio_section">
+                        <div class="media-left about_social">
+                            <div class="row m0 about_section section_row">
+                                <h4>About Me</h4>
+                                <dl class="dl-horizontal">
+                                    <dt>Full Name:</dt>
+                                    <dd>Masum Rana</dd>
+
+                                    <dt>Location:</dt>
+                                    <dd>Dhaka, Bangladesh</dd>
+
+                                    <dt>Join Date:</dt>
+                                    <dd>3 August, 2015</dd>
+
+                                    <dt>Total Videos:</dt>
+                                    <dd>309</dd>
+
+                                    <dt>Total Vies:</dt>
+                                    <dd>5,34,949</dd>
+                                </dl>
+                            </div>
+                            <div class="row m0 social_section section_row">
+                                <h5>Social Accounts</h5>
+                                <ul class="list-inline">
+                                    <li><a href="#"><img src="images/icons/social/1.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/2.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/3.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/4.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/5.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/6.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/7.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/8.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/9.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/10.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/11.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="images/icons/social/12.jpg" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media-body author_desc_by_author">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </p>
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                                anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                                veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row title_row">
+                    <h3>videos by masum rana</h3>
+                </div>
+                <div class="row">
+                    <article class="col-sm-4 video_post postType2">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src="images/media/3.jpg" alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Comedy</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType3">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src="images/media/4.jpg" alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Science</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType4">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src='{% static "images/media/5.jpg" %}' alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Youtube</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType2">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src='{% static "images/media/6.jpg" %}' alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">People</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType3">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src='{% static "images/media/7.jpg" %}' alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Space Tech</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType4">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src='{% static "images/media/8.jpg" %}' alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Nature &amp; Beauty</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType2">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src='{% static "images/media/9.jpg" %}' alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Entertainment</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType3">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src='{% static "images/media/10.jpg" %}' alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Relationship</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 video_post postType4">
+                        <div class="inner row m0">
+                            <a href="single-video.html">
+                                <div class="row screencast m0">
+                                    <img src='{% static "images/media/11.jpg" %}' alt="" class="cast img-responsive">
+                                    <div class="play_btn"></div>
+                                    <div class="media-length">17:30</div>
+                                </div>
+                            </a>
+                            <div class="row m0 post_data">
+                                <div class="category"><a href="category.html"><img src='{% static "images/icons/catagory.png" %}'
+                                            alt="">Business</a></div>
+                                <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                        in adipsicing elit</a></div>
+                                <div class="fleft date">Published: 3 August, 2015</div>
+                                <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                            alt="">3,45,346</a></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="row pagination_row">
+                    <ul class="pagination">
+                        <li><a href="#">previous</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li class="disabled"><a href="#">...</a></li>
+                        <li><a href="#">next</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3 sidebar sidebar2">
+                <div class="row m0 sidebar_row_inner">
+                    
+                    <!--Recommended to Follow-->
+                    <div class="row m0 widget widget_recommended_to_follow">
+                        <h5 class="widget_title">recommended to follow</h5>
+                        <div class="row m0 inner">
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/1.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/2.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/3.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/4.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--More Recommended to Follow-->
+                    <div class="row m0 widget widget_recommended_to_follow">
+                        <h5 class="widget_title">more authors to follow</h5>
+                        <div class="row m0 inner">
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/1.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/2.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/3.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/4.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/1.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/2.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/3.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/4.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/1.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/2.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/3.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left"><a href="page-author.html"><img src="images/follow/4.jpg" alt=""
+                                            class="circle"></a></div>
+                                <div class="media-body media-middle">
+                                    <a href="page-author.html">
+                                        <h5>Lisa Zing Lung</h5>
+                                    </a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn follower_count">34,000</a>
+                                        <a href="#" class="btn follow">follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Uploads-->
+
+<section class="row">
+    <ul class="nav nav-justified ribbon">
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+    </ul>
+</section>
+<!--Ribbon-->
+
+<footer class="row">
+    <div class="container">
+        <div class="row sidebar sidebar_footer">
+            <div class="col-sm-3 widget widget1 w_in_footer widget_about">
+                <h5 class="widget_title">About Video Cafe</h5>
+                <div class="row m0 inner">
+                    <a href="index.html"><img src="images/logo.png" alt=""></a><br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit</p>
+                </div>
+            </div>
+            <div class="col-sm-3 widget widget2 w_in_footer widget_subscribe">
+                <h5 class="widget_title">subscribe to our newsletter</h5>
+                <div class="row m0 inner">
+                    <form action="#" class="row m0" method="post">
+                        <input type="email" class="form-control" placeholder="Enter Email Address">
+                        <input type="submit" value="Submit Now" class="form-control btn btn-default">
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-3 widget widget3 w_in_footer widget_tags">
+                <h5 class="widget_title">popular tags</h5>
+                <div class="row m0 inner">
+                    <a href="#" class="tag">business</a>
+                    <a href="#" class="tag">osx</a>
+                    <a href="#" class="tag">windows 10</a>
+                    <a href="#" class="tag">osx yosemite</a>
+                    <a href="#" class="tag">photoshop</a>
+                    <a href="#" class="tag">css</a>
+                    <a href="#" class="tag">business</a>
+                    <a href="#" class="tag">osx</a>
+                    <a href="#" class="tag">windows 10</a>
+                    <a href="#" class="tag">osx yosemite</a>
+                    <a href="#" class="tag">photoshop</a>
+                    <a href="#" class="tag">css</a>
+                </div>
+            </div>
+            <div class="col-sm-3 widget widget4 w_in_footer widget_twitter">
+                <h5 class="widget_title">twitter feed</h5>
+                <div class="row m0 inner">
+                    <div class="row m0 tweet"><a href="#">@masum_rana:</a>Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat</div>
+                    <div class="row m0 tweet"><a href="#">@masum_rana:</a>Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat</div>
+                    <div class="row m0 tweet"><a href="#">@masum_rana:</a>Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

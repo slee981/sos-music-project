@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<div class="col-md-12">
+    <div class="modal-header">
+        <div>
+            <div style="text-align: center">
+                <h4>Sign in to <b>SOS Music Media</b> using social profiles</h4>
+            </div>
+            <div style="text-align: center">
+                <p><a href="#"><img src="{% static 'images/btn/facebook-login.png' %}" alt=""></a></p>
+                <p><a href="#"><img src="{% static 'images/btn/gmail-login.png' %}" alt=""></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="modal-body">
+                <div id="alert_box"></div>
+                <form method="POST" name="login_form" id="login_form" action="{% url 'login' %}"
+                    class="form-horizontal">
+                    {% csrf_token %}
+                    <div style="text-align: center" class="form-header row m0">
+                        <h4>or Sign in using email address</h4>
+                    </div>
+
+                    <fieldset>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="username">Username</label>
+                            <div class="col-md-4">
+                                <input id="username" required="required" name="username" type="text" placeholder="Username"
+                                    class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Password input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="password">Password</label>
+                            <div class="col-md-4">
+                                <input id="password" required="required" name="password" type="password"
+                                    placeholder="Password" class="form-control input-md">
+                            </div>
+                        </div>
+                        <input name="refresh" style="display: none" id="refresh1" value="yes"/>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="sign_in"></label>
+                            <div class="col-md-4">
+                                <button id="sign_in" name="sign_in" style="width: 100%" class="btn btn-info">Sign
+                                    In</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="modal-body">
+                <form method="POST" name="register_form" id="register_form" action="{% url 'register' %}"
+                    class="form-horizontal">
+                    {% csrf_token %}
+                    <div style="text-align: center" class="form-header row m0">
+                        <h4>or Create an account below:</h4>
+                    </div>
+
+                    <fieldset>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="first_name">First Name</label>
+                            <div class="col-md-4">
+                                <input required="required" id="first_name" name="first_name" type="text"
+                                    placeholder="First Name" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="last_name">Last Name</label>
+                            <div class="col-md-4">
+                                <input required="required" id="last_name" name="last_name" type="text"
+                                    placeholder="Last Name" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="email">Email</label>
+                            <div class="col-md-4">
+                                <input required="required" id="email" name="email" type="text" placeholder="Email"
+                                    class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="username">Username</label>
+                            <div class="col-md-4">
+                                <input required="required" id="username" name="username" type="text"
+                                    placeholder="Username" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Password input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="password">Password</label>
+                            <div class="col-md-4">
+                                <input required="required" id="password" name="password" type="password"
+                                    placeholder="Password" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="password2">Password Confirmation</label>
+                            <div class="col-md-4">
+                                <input required="required" id="password2" name="password2" type="password"
+                                    placeholder="Confirmation" class="form-control input-md">
+                            </div>
+                        </div>
+                        <input name="refresh" style="display: none" id="refresh" value="yes"/>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="sign_in"></label>
+                            <div class="col-md-4">
+                                <button id="sign_in" name="sign_in" style="width: 100%" class="btn btn-info">Sign In</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
