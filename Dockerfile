@@ -5,15 +5,21 @@ RUN mkdir /src
 RUN mkdir /static
 WORKDIR /src
 
+RUN apt-get install -y supervisor
+RUN mkdir -p /var/log/supervisor
+ADD ./deploy/supervisor_conf.d/webapp.conf /etc/supervisor/conf.d/webapp.conf
+
 # install psycopg2
+
+
 RUN apk update \
     && apk add --virtual build-deps gcc python3-dev musl-dev tiff-dev tk-dev tcl-dev lcms2-dev \
     && apk add --no-cache jpeg-dev libmemcached-dev zlib-dev \
     && apk add postgresql-dev \
     && apk add musl-dev linux-headers gcc \
     && pip install psycopg2 \
-    && apk del build-deps 
-
+    && apk del build-deps nano wget
+    
 EXPOSE 8080
 
 ADD ./src /src
