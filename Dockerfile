@@ -6,8 +6,10 @@ RUN mkdir /static
 WORKDIR /src
 
 
+RUN apk add supervisor
 RUN mkdir -p /var/log/supervisor
 ADD ./deploy/supervisor_conf.d/webapp.conf /etc/supervisor/conf.d/webapp.conf
+
 
 # install psycopg2
 
@@ -20,7 +22,6 @@ RUN apk update \
     && pip install psycopg2 \
     && apk del build-deps nano wget
 
-RUN apk add supervisor
 
 EXPOSE 8080
 
