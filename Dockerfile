@@ -17,7 +17,7 @@ RUN apk update \
     && apk del build-deps nano wget
 
 
-EXPOSE 8080
+EXPOSE 8000
 
 ADD ./src /src
 RUN pip install --upgrade pip
