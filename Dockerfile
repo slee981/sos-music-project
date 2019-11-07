@@ -5,7 +5,7 @@ RUN mkdir /src
 RUN mkdir /static
 WORKDIR /src
 
-RUN apt-get install -y supervisor
+
 RUN mkdir -p /var/log/supervisor
 ADD ./deploy/supervisor_conf.d/webapp.conf /etc/supervisor/conf.d/webapp.conf
 
@@ -19,7 +19,9 @@ RUN apk update \
     && apk add musl-dev linux-headers gcc \
     && pip install psycopg2 \
     && apk del build-deps nano wget
-    
+
+RUN apk add supervisor
+
 EXPOSE 8080
 
 ADD ./src /src
