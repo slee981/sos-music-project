@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sos_db',
         'USER': 'postgres',
-        'HOST': 'sos-music-media-dev2.us-east-2.elasticbeanstalk.com',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }

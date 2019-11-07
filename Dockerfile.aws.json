@@ -1,4 +1,78 @@
 {
-    "AWSEBDockerrunVersion": "1",
-    "Logging": "/var/eb_log"
-}
+    "AWSEBDockerrunVersion": 2,
+    "volumes": [
+      {
+        "name": "db-data",
+        "host": {
+          "sourcePath": "/data/db"
+        }
+      }
+    ],
+    "containerDefinitions": [
+      {
+        "name": "db",
+        "image": "postgres:alpine",
+        "essential": true,
+        "memory": 128,
+        "environment": [
+          {
+            "name": "POSTGRES_USER",
+            "value": "root"
+          },
+          {
+            "name": "POSTGRES_PASSWORD",
+            "value": "39496486"
+          },
+          {
+            "name": "PGDATA",
+            "value": "/data/db/pgdata"
+          }
+        ],
+        "portMappings": [
+          {
+            "hostPort": 5432,
+            "containerPort": 5432
+          }
+        ],
+        "mountPoints": [
+          {
+            "sourceVolume": "db-data",
+            "containerPath": "/data/db"
+          }
+        ]
+      },
+      {
+        "name": "web",
+        "image": ".",
+        "essential": true,
+        "memory": 128,
+        "environment": [
+          {
+            "name": "NODE_ENV",
+            "value": "production"
+          },
+          {
+            "name": "DB_HOST",
+            "value": "db"
+          },
+          {
+            "name": "DB_PORT",
+            "value": "5432"
+          },
+          {
+            "name": "DB_PASSWORD",
+            "value": "39496486"
+          }
+        ],
+        "links": [
+          "db"
+        ],
+        "portMappings": [
+          {
+            "hostPort": 8080,
+            "containerPort": 3000
+          }
+        ]
+      }
+    ]
+  }

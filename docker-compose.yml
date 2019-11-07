@@ -10,6 +10,16 @@ services:
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - web
+  db:
+    image: postgres:alpine
+    container_name: pz01
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sos_db
+      
   web:
     build: .
     container_name: dz01
@@ -21,15 +31,7 @@ services:
       - "8000"
     links:
       - redis
-  db:
-    image: postgres:alpine
-    container_name: pz01
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: sos_db
+  
     
   redis:
     image: redis:alpine
