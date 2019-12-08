@@ -20,13 +20,13 @@ restart-server:
 	docker-compose stop web && docker-compose start web
 
 shell-nginx:
-	docker exec -ti nz01 /bin/sh
+	docker exec -ti nginx_app /bin/sh
 
 shell-web:
-	docker exec -ti dz01 /bin/sh
+	docker exec -ti web_app /bin/sh
 
 shell-db:
-	docker exec -ti pz01 /bin/sh
+	docker exec -ti postgres_db /bin/sh
 
 log-nginx:
 	docker-compose logs nginx  
@@ -38,4 +38,4 @@ log-db:
 	docker-compose logs db
 
 collectstatic:
-	docker exec dz01 /bin/sh -c "python manage.py collectstatic --noinput"  
+	docker exec web_app /bin/sh -c "python manage.py collectstatic --noinput"  

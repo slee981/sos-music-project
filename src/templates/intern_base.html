@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-tagsinput.css' %}">
+  
   <link rel="stylesheet" type="{% static 'text/css" href="css/bootstrap-select.min.css' %}" media="screen">
 
   <!--Fonts-->
@@ -21,9 +23,12 @@
   <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
   <script src="{% static 'js/jquery-3.2.1.min.js' %} "></script>
+  
 
   <!--Bootstrap JS-->
   <script src="{% static 'js/bootstrap.min.js' %} "></script>
+  <script src="{% static 'js/bootstrap-tagsinput.js' %} "></script>
+  <script src="{% static 'js/typeaheadjs.js' %} "></script>
 
   <!--jScroll-->
   <script src="{% static 'js/jquery.jscroll.min.js' %} "></script>
@@ -64,6 +69,10 @@
     {{ BASE_DIR }}
     {% endblock %}
   </div>
+
+  {% include 'partials/_login_modal.html' %}
+
+  {% include 'partials/_signin_modal.html' %}
   <!-- Footer -->
 
   

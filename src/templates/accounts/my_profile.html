@@ -2,7 +2,7 @@
 
 {% block page_title %}
 
-Masum Rana
+User Profile
 
 {% endblock %}
 
@@ -21,7 +21,7 @@ Masum Rana
                     <div class="row">
                         <div class="col-sm-6 author_photo_name">
                             <img src='{% static "images/profile.jpg" %}' alt="" class="img-thumbnail img-circle">
-                            <h3>Masum Rana</h3>
+                            <h3>{{ user.first_name }} {{ user.last_name }}</h3>
                         </div>
                         <div class="col-sm-6 follow_n_count">
                             <div class="btn-group">
@@ -36,40 +36,25 @@ Masum Rana
                                 <h4>About Me</h4>
                                 <dl class="dl-horizontal">
                                     <dt>Full Name:</dt>
-                                    <dd>Masum Rana</dd>
+                                    <dd>{{ user.first_name }} {{ user.last_name }}</dd>
 
                                     <dt>Location:</dt>
                                     <dd>Dhaka, Bangladesh</dd>
 
                                     <dt>Join Date:</dt>
-                                    <dd>3 August, 2015</dd>
+                                    <dd>3 August, 2019</dd>
 
-                                    <dt>Total Videos:</dt>
+                                    <dt>Total Posts:</dt>
                                     <dd>309</dd>
 
                                     <dt>Total Vies:</dt>
                                     <dd>5,34,949</dd>
                                 </dl>
                             </div>
-                            <div class="row m0 social_section section_row">
-                                <h5>Social Accounts</h5>
-                                <ul class="list-inline">
-                                    <li><a href="#"><img src="images/icons/social/1.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/2.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/3.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/4.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/5.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/6.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/7.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/8.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/9.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/10.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/11.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="images/icons/social/12.jpg" alt=""></a></li>
-                                </ul>
-                            </div>
+                            
                         </div>
                         <div class="media-body author_desc_by_author">
+                            <h1>Who am I?</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -83,15 +68,15 @@ Masum Rana
                     </div>
                 </div>
                 <div class="row title_row">
-                    <h3>videos by masum rana</h3>
+                    <h3>videos by {{ user.first_name }} {{ user.last_name }}</h3>
                 </div>
                 <div class="row">
                     <article class="col-sm-4 video_post postType2">
                         <div class="inner row m0">
                             <a href="single-video.html">
                                 <div class="row screencast m0">
-                                    <img src="images/media/3.jpg" alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
+                                    <img src="{% static 'images/media/3.jpg' %}" alt="" class="cast img-responsive">
+                                    
                                     <div class="media-length">17:30</div>
                                 </div>
                             </a>
@@ -110,8 +95,7 @@ Masum Rana
                         <div class="inner row m0">
                             <a href="single-video.html">
                                 <div class="row screencast m0">
-                                    <img src="images/media/4.jpg" alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
+                                    <img src="{% static 'images/media/4.jpg' %}" alt="" class="cast img-responsive">
                                     <div class="media-length">17:30</div>
                                 </div>
                             </a>
@@ -131,7 +115,6 @@ Masum Rana
                             <a href="single-video.html">
                                 <div class="row screencast m0">
                                     <img src='{% static "images/media/5.jpg" %}' alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
                                     <div class="media-length">17:30</div>
                                 </div>
                             </a>
@@ -151,8 +134,6 @@ Masum Rana
                             <a href="single-video.html">
                                 <div class="row screencast m0">
                                     <img src='{% static "images/media/6.jpg" %}' alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
-                                    <div class="media-length">17:30</div>
                                 </div>
                             </a>
                             <div class="row m0 post_data">
@@ -171,8 +152,6 @@ Masum Rana
                             <a href="single-video.html">
                                 <div class="row screencast m0">
                                     <img src='{% static "images/media/7.jpg" %}' alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
-                                    <div class="media-length">17:30</div>
                                 </div>
                             </a>
                             <div class="row m0 post_data">
@@ -191,8 +170,6 @@ Masum Rana
                             <a href="single-video.html">
                                 <div class="row screencast m0">
                                     <img src='{% static "images/media/8.jpg" %}' alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
-                                    <div class="media-length">17:30</div>
                                 </div>
                             </a>
                             <div class="row m0 post_data">
@@ -211,8 +188,6 @@ Masum Rana
                             <a href="single-video.html">
                                 <div class="row screencast m0">
                                     <img src='{% static "images/media/9.jpg" %}' alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
-                                    <div class="media-length">17:30</div>
                                 </div>
                             </a>
                             <div class="row m0 post_data">
@@ -231,8 +206,6 @@ Masum Rana
                             <a href="single-video.html">
                                 <div class="row screencast m0">
                                     <img src='{% static "images/media/10.jpg" %}' alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
-                                    <div class="media-length">17:30</div>
                                 </div>
                             </a>
                             <div class="row m0 post_data">
@@ -251,8 +224,6 @@ Masum Rana
                             <a href="single-video.html">
                                 <div class="row screencast m0">
                                     <img src='{% static "images/media/11.jpg" %}' alt="" class="cast img-responsive">
-                                    <div class="play_btn"></div>
-                                    <div class="media-length">17:30</div>
                                 </div>
                             </a>
                             <div class="row m0 post_data">
@@ -340,239 +311,11 @@ Masum Rana
                             </div>
                         </div>
                     </div>
-                    <!--More Recommended to Follow-->
-                    <div class="row m0 widget widget_recommended_to_follow">
-                        <h5 class="widget_title">more authors to follow</h5>
-                        <div class="row m0 inner">
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/1.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/2.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/3.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/4.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/1.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/2.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/3.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/4.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/1.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/2.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/3.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left"><a href="page-author.html"><img src="images/follow/4.jpg" alt=""
-                                            class="circle"></a></div>
-                                <div class="media-body media-middle">
-                                    <a href="page-author.html">
-                                        <h5>Lisa Zing Lung</h5>
-                                    </a>
-                                    <div class="btn-group">
-                                        <a href="#" class="btn follower_count">34,000</a>
-                                        <a href="#" class="btn follow">follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!--Uploads-->
-
-<section class="row">
-    <ul class="nav nav-justified ribbon">
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-    </ul>
-</section>
-<!--Ribbon-->
-
-<footer class="row">
-    <div class="container">
-        <div class="row sidebar sidebar_footer">
-            <div class="col-sm-3 widget widget1 w_in_footer widget_about">
-                <h5 class="widget_title">About Video Cafe</h5>
-                <div class="row m0 inner">
-                    <a href="index.html"><img src="images/logo.png" alt=""></a><br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit</p>
-                </div>
-            </div>
-            <div class="col-sm-3 widget widget2 w_in_footer widget_subscribe">
-                <h5 class="widget_title">subscribe to our newsletter</h5>
-                <div class="row m0 inner">
-                    <form action="#" class="row m0" method="post">
-                        <input type="email" class="form-control" placeholder="Enter Email Address">
-                        <input type="submit" value="Submit Now" class="form-control btn btn-default">
-                    </form>
-                </div>
-            </div>
-            <div class="col-sm-3 widget widget3 w_in_footer widget_tags">
-                <h5 class="widget_title">popular tags</h5>
-                <div class="row m0 inner">
-                    <a href="#" class="tag">business</a>
-                    <a href="#" class="tag">osx</a>
-                    <a href="#" class="tag">windows 10</a>
-                    <a href="#" class="tag">osx yosemite</a>
-                    <a href="#" class="tag">photoshop</a>
-                    <a href="#" class="tag">css</a>
-                    <a href="#" class="tag">business</a>
-                    <a href="#" class="tag">osx</a>
-                    <a href="#" class="tag">windows 10</a>
-                    <a href="#" class="tag">osx yosemite</a>
-                    <a href="#" class="tag">photoshop</a>
-                    <a href="#" class="tag">css</a>
-                </div>
-            </div>
-            <div class="col-sm-3 widget widget4 w_in_footer widget_twitter">
-                <h5 class="widget_title">twitter feed</h5>
-                <div class="row m0 inner">
-                    <div class="row m0 tweet"><a href="#">@masum_rana:</a>Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat</div>
-                    <div class="row m0 tweet"><a href="#">@masum_rana:</a>Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat</div>
-                    <div class="row m0 tweet"><a href="#">@masum_rana:</a>Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 {% endblock %}

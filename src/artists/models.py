@@ -11,4 +11,4 @@ class Artist(models.Model):
   photo_profile = models.ImageField(upload_to=user_directory_path, blank=False, null=True)
 
   class Meta:
-        db_table = "artists"
+    db_table = "artists"

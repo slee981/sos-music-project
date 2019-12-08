@@ -6,7 +6,7 @@ from pprint import pprint
 from django.contrib.auth.decorators import login_required
 
 
-def login_1(request):
+def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']

@@ -22,3 +22,13 @@ def index(request):
     }
 
     return render(request, 'artists/index.html', context)
+
+def artist(request, id):
+
+    artist = Artist.objects.get(id = id)
+    
+    context = {
+        'artist': artist
+    }
+
+    return render(request, 'artists/artist.html', context)

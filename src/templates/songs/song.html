@@ -1,0 +1,339 @@
+{% extends 'intern_base.html' %}
+
+{% block page_title %}
+
+{{ song.title }}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+<script>
+
+$( document ).ready(function() {
+    var topics_dic = {}
+    $.ajax({
+      type: "GET",
+      async: false,
+      url: "{% url 'get_topics' %}",
+      success: function (response) {
+        
+        topics_dic = response
+        
+      }
+    });
+
+    var topics = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('display'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: $.map(topics_dic, function (topic) {
+            return {
+                value: topic.value,
+                display: topic.display
+            };
+        })
+    });
+    topics.initialize();
+
+    $('#user_topics_form').tagsinput({
+        itemValue: 'value',
+        itemText: 'display',
+        typeaheadjs: [{
+            minLength: 1,
+            highlight: true,
+            maxTags: 4,
+        },{
+            minlength: 1,
+            maxTags: 4,
+            name: 'topics',
+            displayKey: 'display',
+            source: topics.ttAdapter(),
+            templates: {
+                empty: [                      
+
+                    '<a class="list-group-item">Nothing found.</a>'
+                ],
+                suggestion: function (data) {
+                    return '<p><strong>' + data.display + '</strong></p>';
+                },
+                //footer: [
+                    //'<span class="new-supplier">Can\'t find supplier? Add it here</span>'
+                //]
+            }
+        }],
+        freeInput: false
+    });
+
+})
+</script>
+<section class="row post_page_sidebar post_page_sidebar1">
+    <div class="container">
+
+        <div class="col-md-12 row">
+            <div class="author_details row m0">
+                <div class="col-md-3 widget about_social"
+                    style="height: 100vh;min-height: 100vh; background-color: rgba(245, 245, 245, 0.938) !important">
+                    <div class="row m0 about_section section_row">
+                        <h3 style="background-color: rgba(235, 235, 235, 0.938)" class="widget_title">About the Song:
+                        </h3>
+                        <div style="text-align: left">
+                            <label>Artist:</label>
+                            <span><a href="">{{ song.artist.name }}</a></span>
+                        </div>
+                        <div style="text-align: left">
+                            <label>Genre:</label>
+                            <span>Rock</span>
+                        </div>
+                        <div style="text-align: left">
+                            <label>Release Year:</label>
+                            <span>2015</span>
+                        </div>
+                        <div style="text-align: left">
+                            <label>Total Views:</label>
+                            <span>5,34,949</span>
+                            
+                        </div>
+                    </div>
+
+                    <div class="widget widget_recommended_to_follow">
+                        <h3 style="background-color: rgba(235, 235, 235, 0.938)" class="widget_title">song's topics
+                        </h3>
+                        {% if user.is_authenticated %}
+                        <div>
+                            <form class="form-horizontal" action="{% url 'save_song_topics' %}" method="POST">
+                                <fieldset>
+                                    {% csrf_token %}
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-12" for="textinput">Add your Topics Below:</label>
+                                        <div class="col-md-12">
+                                            <input style="border-width: 3px; border-color: lightblue" id="user_topics_form" name="user_topics_form" type="text" placeholder="Add your topics" class="form-control input-md">
+                                        </div>
+                                    </div>
+                                    <input style="display:none" name="song_id" value="{{ song.id }}"/>
+                                    <button type="submit" class="btn btn-info pull-right">Save</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <span style="font-size: 20px">Your Topics:</span>
+                        </div>
+                        <div class="col-md-12">
+                            
+                            {% if user_topics %}
+                                {% for user_topic in user_topics %}
+                                <div class="" style="margin-top: 10px; width: 100%;">
+                                    <span class="badge badge-pill badge-light"> {{ user_topic.display }}</span>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                                <span>Add Topics Above!</span>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <span style="font-size: 20px">Top 4:</span>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <div class="col-md-12 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Topic 1</span>
+                            </div>
+                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Topic 2</span>
+                            </div>
+                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Topic 3</span>
+                            </div>
+                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Topic 4</span>
+                            </div>
+                        </div>
+
+                        <!--Less Important Topics-->
+                        <div>
+                            <span style="font-size: 20px">Others:</span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Other Topic 1 w2</span>
+                            </div>
+
+                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Other Topic 2 e ecec</span>
+                            </div>
+                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Other Topic 3</span>
+                            </div>
+                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
+                                <span class="badge badge-pill badge-light">Other Topic 4</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 author_desc_by_author">
+                    <p style="line-height: 26px">
+                        {{ song.lyric|linebreaksbr}}
+                    </p>
+                </div>
+                <div class="col-md-3 widget">
+                    <div class="row">
+
+                        <div class="comment-wrapper">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    Comment panel
+                                </div>
+                                <div class="panel-body">
+                                    <form action="{% url 'songs_create_comment' %}" method="POST">
+                                        {% csrf_token %}
+                                        <textarea name="comment" class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                                        <input style="display:none" name="song_id" value="{{ song.id }}"/>
+                                        <br>
+                                        <button type="submit" class="btn btn-info pull-right">Post</button>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <hr>
+                                    
+                                    {% if comments %}        
+                                        <ul class="media-list">
+                                            {% for comment in comments %}
+
+                                            <li class="media">
+                                                <a href="#" class="pull-left">
+                                                    <img src="https://bootdey.com/img/Content/user_1.jpg" alt=""
+                                                        class="img-circle">
+                                                </a>
+                                                <div class="media-body">
+                                                    <span class="text-muted pull-right">
+                                                        <small class="text-muted">{{ comment.created|date:'m/d/Y H:i' }}</small>
+                                                    </span>
+                                                    <strong class="text-success">@<a href="#">{{ comment.user.username }}</a></strong>
+                                                    <p>
+                                                            {{ comment.comment|linebreaksbr }}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                    <span style="text-align: center">
+                                        Be the first one to comment!
+                                    </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 row">
+            <div class="title_row">
+                <h3>Top 4 Posts For</h3>
+                <h2>{{ song.title }}</h2>
+            </div>
+            <div class="row">
+                <article class="col-sm-3 video_post postType2">
+                    <div class="inner row m0">
+                        <a href="single-video.html">
+                            <div class="row screencast m0">
+                                <img src='{% static "images/media/6.jpg" %}' alt="" class="cast img-responsive">
+                                <div class="media-length">17:30</div>
+                            </div>
+                        </a>
+                        <div class="row m0 post_data">
+                            <div class="category"><a href="category.html"><img
+                                        src='{% static "images/icons/catagory.png" %}' alt="">People</a></div>
+                            <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                    in adipsicing elit</a></div>
+                            <div class="fleft date">Published: 3 August, 2015</div>
+                            <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                        alt="">3,45,346</a></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-sm-3 video_post postType3">
+                    <div class="inner row m0">
+                        <a href="single-video.html">
+                            <div class="row screencast m0">
+                                <img src='{% static "images/media/7.jpg" %}' alt="" class="cast img-responsive">
+                                <div class="media-length">17:30</div>
+                            </div>
+                        </a>
+                        <div class="row m0 post_data">
+                            <div class="category"><a href="category.html"><img
+                                        src='{% static "images/icons/catagory.png" %}' alt="">Space Tech</a></div>
+                            <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                    in adipsicing elit</a></div>
+                            <div class="fleft date">Published: 3 August, 2015</div>
+                            <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                        alt="">3,45,346</a></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-sm-3 video_post postType4">
+                    <div class="inner row m0">
+                        <a href="single-video.html">
+                            <div class="row screencast m0">
+                                <img src='{% static "images/media/8.jpg" %}' alt="" class="cast img-responsive">
+                                <div class="media-length">17:30</div>
+                            </div>
+                        </a>
+                        <div class="row m0 post_data">
+                            <div class="category"><a href="category.html"><img
+                                        src='{% static "images/icons/catagory.png" %}' alt="">Nature &amp; Beauty</a>
+                            </div>
+                            <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                    in adipsicing elit</a></div>
+                            <div class="fleft date">Published: 3 August, 2015</div>
+                            <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                        alt="">3,45,346</a></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-sm-3 video_post postType2">
+                    <div class="inner row m0">
+                        <a href="single-video.html">
+                            <div class="row screencast m0">
+                                <img src='{% static "images/media/9.jpg" %}' alt="" class="cast img-responsive">
+                                <div class="media-length">17:30</div>
+                            </div>
+                        </a>
+                        <div class="row m0 post_data">
+                            <div class="category"><a href="category.html"><img
+                                        src='{% static "images/icons/catagory.png" %}' alt="">Entertainment</a></div>
+                            <div class="row m0"><a href="single-video.html" class="post_title">Duis aute irure dolor
+                                    in adipsicing elit</a></div>
+                            <div class="fleft date">Published: 3 August, 2015</div>
+                            <div class="fright views"><a href="#"><img src='{% static "images/icons/views.png" %}'
+                                        alt="">3,45,346</a></div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div class="row m0">
+                <div class="clearfix"></div>
+                <a href="inc/more-uploads-1.html" class="load_more_videos">See All</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Uploads-->
+
+<section class="row">
+    <ul class="nav nav-justified">
+        <li style="background-color: darkgrey"><a href="#"></a></li>
+    </ul>
+</section>
+<!--Ribbon-->
+
+{% endblock %}

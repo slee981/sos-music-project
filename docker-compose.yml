@@ -2,7 +2,7 @@ version: '2'
 services:  
   nginx:
     image: nginx:alpine
-    container_name: nz01
+    container_name: nginx_app
     ports:
       - "8000:8000"
     volumes:
@@ -12,7 +12,7 @@ services:
       - web
   web:
     build: .
-    container_name: dz01
+    container_name: web_app
     depends_on:
       - db
     volumes:
@@ -23,17 +23,13 @@ services:
       - redis
   db:
     image: postgres:alpine
-    container_name: pz01
+    container_name: postgres_db
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: sos_db
     
   redis:
     image: redis:alpine
-    container_name: rz01
+    container_name: redis_app
     ports:
      - '6379:6379'
 

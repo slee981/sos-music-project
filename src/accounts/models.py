@@ -12,3 +12,6 @@ class Account(models.Model):
   about = models.TextField(blank=True)
   photo_profile = models.ImageField(upload_to='photos/%Y/%m/%d/')
   is_active = models.BooleanField(default=True)
+
+  class Meta:
+    db_table = "accounts"

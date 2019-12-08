@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="modal-body">
-        <form method="POST" name="login_form" id="login_form" action="{% url 'login_1' %}" class="form-horizontal">
+        <form method="POST" name="login_form" id="login_form" action="{% url 'login' %}" class="form-horizontal">
           {% csrf_token %}
           <div style="text-align: center" class="form-header row m0">
             <h4>or Sign in using email address</h4>

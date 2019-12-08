@@ -1,0 +1,520 @@
+[
+    {
+      "model": "topics.topic",
+      "pk": 1,
+      "fields": {
+        "description": "Relationship"
+      }
+    },
+    {
+      "model": "topics.topic",
+      "pk": 2,
+      "fields": {
+        "description": "Love"
+      }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 3,
+        "fields": {
+          "description": "Friendship"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 4,
+        "fields": {
+          "description": "Depression"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 5,
+        "fields": {
+          "description": "Personality-disorder"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 6,
+        "fields": {
+          "description": "Obsessive-compulsive"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 7,
+        "fields": {
+          "description": "Phobia"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 8,
+        "fields": {
+          "description": "Post-traumatic"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 9,
+        "fields": {
+          "description": "Schizophrenia"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 10,
+        "fields": {
+          "description": "Relationship"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 11,
+        "fields": {
+          "description": "Relationship"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 12,
+        "fields": {
+          "description": "Poverty"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 13,
+        "fields": {
+          "description": "Gun-Control"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 14,
+        "fields": {
+          "description": "God"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 15,
+        "fields": {
+          "description": "Atheism"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 16,
+        "fields": {
+          "description": "Religion"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 17,
+        "fields": {
+          "description": "War"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 18,
+        "fields": {
+          "description": "Freedom"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 19,
+        "fields": {
+          "description": "Liberty"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 20,
+        "fields": {
+          "description": "Riot"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 21,
+        "fields": {
+          "description": "Chaos"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 22,
+        "fields": {
+          "description": "Mindset"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 23,
+        "fields": {
+          "description": "Loneliness"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 24,
+        "fields": {
+          "description": "Family"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 25,
+        "fields": {
+          "description": "Nightlife"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 26,
+        "fields": {
+          "description": "Adventure"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 27,
+        "fields": {
+          "description": "Drugs"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 28,
+        "fields": {
+          "description": "Guns"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 29,
+        "fields": {
+          "description": "Hype"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 30,
+        "fields": {
+          "description": "Jesus"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 31,
+        "fields": {
+          "description": "Segregation"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 32,
+        "fields": {
+          "description": "Warfare"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 33,
+        "fields": {
+          "description": "Taxation"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 34,
+        "fields": {
+          "description": "Free-Speech"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 35,
+        "fields": {
+          "description": "Constitution"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 36,
+        "fields": {
+          "description": "Technology"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 37,
+        "fields": {
+          "description": "Constitution"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 38,
+        "fields": {
+          "description": "Political"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 39,
+        "fields": {
+          "description": "Democrats"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 40,
+        "fields": {
+          "description": "Republicans"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 41,
+        "fields": {
+          "description": "Constitution"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 42,
+        "fields": {
+          "description": "Individual-Rights"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 43,
+        "fields": {
+          "description": "Country-Life"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 44,
+        "fields": {
+          "description": "City-Life"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 45,
+        "fields": {
+          "description": "Money"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 46,
+        "fields": {
+          "description": "Personal-Style"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 47,
+        "fields": {
+          "description": "Capitalism"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 48,
+        "fields": {
+          "description": "Socialism"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 49,
+        "fields": {
+          "description": "Communism"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 50,
+        "fields": {
+          "description": "Fascist"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 51,
+        "fields": {
+          "description": "Narcissist"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 52,
+        "fields": {
+          "description": "Selfishness"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 53,
+        "fields": {
+          "description": "Future"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 54,
+        "fields": {
+          "description": "Kids"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 56,
+        "fields": {
+          "description": "Childhood"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 57,
+        "fields": {
+          "description": "Timeless"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 58,
+        "fields": {
+          "description": "Narcissist"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 59,
+        "fields": {
+          "description": "Psychotic"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 60,
+        "fields": {
+          "description": "Youthful"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 61,
+        "fields": {
+          "description": "Respect"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 62,
+        "fields": {
+          "description": "Maniac"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 63,
+        "fields": {
+          "description": "Society"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 64,
+        "fields": {
+          "description": "Social-Media"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 65,
+        "fields": {
+          "description": "Fear"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 66,
+        "fields": {
+          "description": "Brave"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 67,
+        "fields": {
+          "description": "Army"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 68,
+        "fields": {
+          "description": "College"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 69,
+        "fields": {
+          "description": "Prostitution"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 70,
+        "fields": {
+          "description": "Slavery"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 71,
+        "fields": {
+          "description": "Homophobia"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 72,
+        "fields": {
+          "description": "Homophobic"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 73,
+        "fields": {
+          "description": "Servitude"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 74,
+        "fields": {
+          "description": "Social-Classification"
+        }
+    },
+    {
+        "model": "topics.topic",
+        "pk": 75,
+        "fields": {
+          "description": "Travel"
+        }
+    }
+  ]
