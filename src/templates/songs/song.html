@@ -11,227 +11,239 @@
 
 {% load static %}
 <script>
+    $(document).ready(function () {
+        var topics_dic = {}
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: "{% url 'get_topics' %}",
+            success: function (response) {
 
-$( document ).ready(function() {
-    var topics_dic = {}
-    $.ajax({
-      type: "GET",
-      async: false,
-      url: "{% url 'get_topics' %}",
-      success: function (response) {
-        
-        topics_dic = response
-        
-      }
-    });
+                topics_dic = response
 
-    var topics = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('display'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        local: $.map(topics_dic, function (topic) {
-            return {
-                value: topic.value,
-                display: topic.display
-            };
-        })
-    });
-    topics.initialize();
-
-    $('#user_topics_form').tagsinput({
-        itemValue: 'value',
-        itemText: 'display',
-        typeaheadjs: [{
-            minLength: 1,
-            highlight: true,
-            maxTags: 4,
-        },{
-            minlength: 1,
-            maxTags: 4,
-            name: 'topics',
-            displayKey: 'display',
-            source: topics.ttAdapter(),
-            templates: {
-                empty: [                      
-
-                    '<a class="list-group-item">Nothing found.</a>'
-                ],
-                suggestion: function (data) {
-                    return '<p><strong>' + data.display + '</strong></p>';
-                },
-                //footer: [
-                    //'<span class="new-supplier">Can\'t find supplier? Add it here</span>'
-                //]
             }
-        }],
-        freeInput: false
-    });
+        });
 
-})
+        var topics = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('display'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: $.map(topics_dic, function (topic) {
+                return {
+                    value: topic.value,
+                    display: topic.display
+                };
+            })
+        });
+        topics.initialize();
+
+        $('#user_topics_form').tagsinput({
+            itemValue: 'value',
+            itemText: 'display',
+            typeaheadjs: [{
+                minLength: 1,
+                highlight: true,
+                maxTags: 4,
+            }, {
+                minlength: 1,
+                maxTags: 4,
+                name: 'topics',
+                displayKey: 'display',
+                source: topics.ttAdapter(),
+                templates: {
+                    empty: [
+
+                        '<a class="list-group-item">Nothing found.</a>'
+                    ],
+                    suggestion: function (data) {
+                        return '<p><strong>' + data.display + '</strong></p>';
+                    },
+                    //footer: [
+                    //'<span class="new-supplier">Can\'t find supplier? Add it here</span>'
+                    //]
+                }
+            }],
+            freeInput: false
+        });
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "{% url 'get_user_topics' %}",
+            data: {
+                song_id: '{{ song.id }}',
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function (response) {
+                
+                if (response != 'empty') {
+                    for (var key in response) {
+                        $('#user_topics_form').tagsinput('add', {"value": response[key].value , "display": response[key].display});
+                    } 
+                }  
+            }
+        });
+        
+        $('#user_topics_form').on('beforeItemRemove', function(event) {
+            // Do some processing here
+            updateUserTopics(event.item, false)
+               
+        });
+
+        $('#user_topics_form').on('beforeItemAdd', function(event) {
+            // event.item: contains the item
+            // event.cancel: set to true to prevent the item getting added
+            updateUserTopics(false, event.item)
+        });
+
+    })
+
+    function updateUserTopics(removed, added){
+        $.ajax({
+                type: "POST",
+                async: false,
+                url: "{% url 'update_user_topics' %}",
+                data: {
+                    song_id: '{{ song.id }}',
+                    user_topics_form: $('#user_topics_form').val(),
+                    removed: removed.value,
+                    added: added.value,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function (response) {
+                    console.log(response)
+                }
+                
+            });
+    }
 </script>
 <section class="row post_page_sidebar post_page_sidebar1">
     <div class="container">
-
         <div class="col-md-12 row">
-            <div class="author_details row m0">
-                <div class="col-md-3 widget about_social"
-                    style="height: 100vh;min-height: 100vh; background-color: rgba(245, 245, 245, 0.938) !important">
-                    <div class="row m0 about_section section_row">
-                        <h3 style="background-color: rgba(235, 235, 235, 0.938)" class="widget_title">About the Song:
-                        </h3>
-                        <div style="text-align: left">
-                            <label>Artist:</label>
-                            <span><a href="">{{ song.artist.name }}</a></span>
-                        </div>
-                        <div style="text-align: left">
-                            <label>Genre:</label>
-                            <span>Rock</span>
-                        </div>
-                        <div style="text-align: left">
-                            <label>Release Year:</label>
-                            <span>2015</span>
-                        </div>
-                        <div style="text-align: left">
-                            <label>Total Views:</label>
-                            <span>5,34,949</span>
-                            
-                        </div>
+            <div class="col-md-3 widget"
+                style="min-height: 100vh; background-color: rgba(245, 245, 245, 0.938) !important">
+                <div class="row m0 about_section">
+                    <h3 style="background-color: rgba(235, 235, 235, 0.938)" class="widget_title">About the Song:
+                    </h3>
+                    <div style="text-align: left">
+                        <label>Artist:</label>
+                        <span><a href="">{{ song.artist.name }}</a></span>
                     </div>
+                    <div style="text-align: left">
+                        <label>Genre:</label>
+                        <span>Rock</span>
+                    </div>
+                    <div style="text-align: left">
+                        <label>Release Year:</label>
+                        <span>2015</span>
+                    </div>
+                    <div style="text-align: left">
+                        <label>Total Views:</label>
+                        <span>5,34,949</span>
 
-                    <div class="widget widget_recommended_to_follow">
-                        <h3 style="background-color: rgba(235, 235, 235, 0.938)" class="widget_title">song's topics
-                        </h3>
-                        {% if user.is_authenticated %}
-                        <div>
-                            <form class="form-horizontal" action="{% url 'save_song_topics' %}" method="POST">
-                                <fieldset>
-                                    {% csrf_token %}
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="textinput">Add your Topics Below:</label>
-                                        <div class="col-md-12">
-                                            <input style="border-width: 3px; border-color: lightblue" id="user_topics_form" name="user_topics_form" type="text" placeholder="Add your topics" class="form-control input-md">
-                                        </div>
+                    </div>
+                </div>
+
+                <div class="row m0 section_row widget_recommended_to_follow">
+                    <h3 style="background-color: rgba(235, 235, 235, 0.938)" class="widget_title">song's topics
+                    </h3>
+                    {% if user.is_authenticated %}
+                    <div>
+                        <form id="save_song_topics" class="form-horizontal">
+                            <fieldset style="text-align: center">
+                                {% csrf_token %}
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-12" for="textinput">Add your Topics Below:</label>
+                                    <div class="col-md-12">
+                                        <input style="width: 100% !important" id="user_topics_form" name="user_topics_form" type="text"
+                                            placeholder="Add your topics" class="form-control input-md">
                                     </div>
-                                    <input style="display:none" name="song_id" value="{{ song.id }}"/>
-                                    <button type="submit" class="btn btn-info pull-right">Save</button>
-                                </fieldset>
-                            </form>
-                        </div>
-                        {% endif %}
-                        <div>
-                            <span style="font-size: 20px">Your Topics:</span>
-                        </div>
-                        <div class="col-md-12">
-                            
-                            {% if user_topics %}
-                                {% for user_topic in user_topics %}
-                                <div class="" style="margin-top: 10px; width: 100%;">
-                                    <span class="badge badge-pill badge-light"> {{ user_topic.display }}</span>
                                 </div>
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                    {% endif %}
+                    
+                    <div>
+                        <span style="font-size: 20px">Topics Related:</span>
+                    </div>
+                    <div class="col-md-12">
+                        <div style="margin-top: 10px; width: 100%;">
+                            {% if all_topics %}
+                                {% for songtopic, values in all_topics.items %}
+
+                                    <span style="margin-right: 10px; color:black;background-color: lightblue !important" class="badge">
+                                        {{ values.description }}
+                                        <span style="color: black;background-color: white !important" class="badge badge-light">{{ values.votes }}</span>
+                                    </span>
+
                                 {% endfor %}
-                            {% else %}
-                                <span>Add Topics Above!</span>
                             {% endif %}
                         </div>
-                        <div>
-                            <span style="font-size: 20px">Top 4:</span>
-                        </div>
-                        
-                        <div class="col-md-12">
-                            <div class="col-md-12 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Topic 1</span>
-                            </div>
-                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Topic 2</span>
-                            </div>
-                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Topic 3</span>
-                            </div>
-                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Topic 4</span>
-                            </div>
-                        </div>
-
-                        <!--Less Important Topics-->
-                        <div>
-                            <span style="font-size: 20px">Others:</span>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Other Topic 1 w2</span>
-                            </div>
-
-                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Other Topic 2 e ecec</span>
-                            </div>
-                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Other Topic 3</span>
-                            </div>
-                            <div class="col-md-12 row m0 inner" style="margin-top: 10px; width: 100%;">
-                                <span class="badge badge-pill badge-light">Other Topic 4</span>
-                            </div>
-
-                        </div>
-
                     </div>
 
                 </div>
 
-                <div class="col-md-6 author_desc_by_author">
-                    <p style="line-height: 26px">
-                        {{ song.lyric|linebreaksbr}}
-                    </p>
-                </div>
-                <div class="col-md-3 widget">
-                    <div class="row">
+            </div>
 
-                        <div class="comment-wrapper">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    Comment panel
-                                </div>
-                                <div class="panel-body">
-                                    <form action="{% url 'songs_create_comment' %}" method="POST">
-                                        {% csrf_token %}
-                                        <textarea name="comment" class="form-control" placeholder="write a comment..." rows="3"></textarea>
-                                        <input style="display:none" name="song_id" value="{{ song.id }}"/>
-                                        <br>
-                                        <button type="submit" class="btn btn-info pull-right">Post</button>
-                                    </form>
-                                    <div class="clearfix"></div>
-                                    <hr>
-                                    
-                                    {% if comments %}        
-                                        <ul class="media-list">
-                                            {% for comment in comments %}
+            <div class="col-md-6 author_desc_by_author">
+                <p style="line-height: 26px">
+                    {{ song.lyric|linebreaksbr}}
+                </p>
+            </div>
+            <div class="col-md-3 widget">
+                <div class="row">
 
-                                            <li class="media">
-                                                <a href="#" class="pull-left">
-                                                    <img src="https://bootdey.com/img/Content/user_1.jpg" alt=""
-                                                        class="img-circle">
-                                                </a>
-                                                <div class="media-body">
-                                                    <span class="text-muted pull-right">
-                                                        <small class="text-muted">{{ comment.created|date:'m/d/Y H:i' }}</small>
-                                                    </span>
-                                                    <strong class="text-success">@<a href="#">{{ comment.user.username }}</a></strong>
-                                                    <p>
-                                                            {{ comment.comment|linebreaksbr }}
-                                                    </p>
-                                                </div>
-                                            </li>
-                                            {% endfor %}
-                                        </ul>
-                                    {% else %}
-                                    <span style="text-align: center">
-                                        Be the first one to comment!
-                                    </span>
-                                    {% endif %}
-                                </div>
+                    <div class="comment-wrapper">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                Comment panel
+                            </div>
+                            <div class="panel-body">
+                                {% if user.is_authenticated %}
+                                <form action="{% url 'songs_create_comment' %}" method="POST">
+                                    {% csrf_token %}
+                                    <textarea name="comment" class="form-control" placeholder="write a comment..."
+                                        rows="3"></textarea>
+                                    <input style="display:none" name="song_id" value="{{ song.id }}" />
+                                    <br>
+                                    <button type="submit" class="btn btn-info pull-right">Post</button>
+                                </form>
+                                <div class="clearfix"></div>
+                                <hr>
+                                {% endif %}
+                                {% if comments %}
+                                <ul class="media-list">
+                                    {% for comment in comments %}
+
+                                    <li class="media">
+                                        <a href="#" class="pull-left">
+                                            <img src="https://bootdey.com/img/Content/user_1.jpg" alt=""
+                                                class="img-circle">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted">{{ comment.created|date:'m/d/Y H:i' }}</small>
+                                            </span>
+                                            <strong class="text-success">@<a
+                                                    href="#">{{ comment.user.username }}</a></strong>
+                                            <p>
+                                                {{ comment.comment|linebreaksbr }}
+                                            </p>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% else %}
+                                <span style="text-align: center">
+                                    Be the first one to comment!
+                                </span>
+                                {% endif %}
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>

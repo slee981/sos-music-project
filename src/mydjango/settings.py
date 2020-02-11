@@ -26,7 +26,7 @@ SECRET_KEY = 's_-aro!sw@)bob$tojdq!s61$+3s22y=dbe!b5y3!p4ch&y3k#'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['web', 'localhost', 'sos-project-testing.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['web', 'localhost', 'django-env.zmceqwe23i.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
