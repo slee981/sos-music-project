@@ -1,8 +1,8 @@
 build:
-	docker-compose build
+	sudo docker-compose build
 
 up:
-	docker-compose up -d
+	sudo docker-compose up
 
 up-non-daemon:
 	docker-compose up
@@ -23,7 +23,7 @@ shell-nginx:
 	docker exec -ti nginx_app /bin/sh
 
 shell-web:
-	docker exec -ti web_app /bin/sh
+	sudo docker exec -ti web_app /bin/sh
 
 shell-db:
 	docker exec -ti postgres_db /bin/sh
