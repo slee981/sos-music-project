@@ -88,10 +88,11 @@ WSGI_APPLICATION = 'mydjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
+        'NAME': 'sos-db',
+        'USER': 'sosmusic',
+        'PASSWORD': 'nothing',
         'HOST': 'db',
-        'PORT': 5432,
+        'PORT': '5432'
     }
 }
 

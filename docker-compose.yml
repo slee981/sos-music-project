@@ -1,4 +1,4 @@
-version: '2'  
+version: '3'  
 services:  
   nginx:
     image: nginx:alpine
@@ -26,10 +26,10 @@ services:
   db:
     image: postgres:alpine
     container_name: db
-    environment: 
-      - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - "5432:5432"
+    env_file: 
+      - .postgres.env.list
     volumes:
       - postgres_data:/var/lib/postgresql/data/
   
@@ -37,7 +37,22 @@ services:
     image: redis:alpine
     container_name: redis_app
     ports:
-     - '6379:6379'
+      - "6379:6379"
+ 
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db 
+    ports:
+      - "5050:80"
+    expose: 
+      - "5050"
+    env_file: 
+      - .pgadmin.env.list
+    volumes: 
+      - pgadmin_data:/var/lib/pgadmin/data/
+    restart: unless-stopped
 
 volumes:
   postgres_data:
+  pgadmin_data:

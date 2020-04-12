@@ -19,6 +19,7 @@ RUN apk update \
 
 EXPOSE 8000
 
+
 ADD ./src /src
 RUN pip install --upgrade pip
 RUN pip install -r requirements.pip
