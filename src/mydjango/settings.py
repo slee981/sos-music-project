@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'artists.apps.ArtistsConfig',
     'songs.apps.SongsConfig',
     'topics.apps.TopicsConfig',
-    'bootstrap', 
-    'fontawesome'
 ]
 
 MIDDLEWARE = [
